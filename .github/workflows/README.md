@@ -1,0 +1,1 @@
+# Web [![Java CI with Gradle](https://github.com/Pavel17489/Web/actions/workflows/blank.yml/badge.svg)](https://github.com/Pavel17489/Web/actions/workflows/blank.yml)
