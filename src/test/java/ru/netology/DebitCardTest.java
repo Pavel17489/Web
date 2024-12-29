@@ -31,6 +31,7 @@ public class DebitCardTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
     }
 
     @AfterEach
@@ -41,7 +42,6 @@ public class DebitCardTest {
 
     @Test
     void shouldSendFormSuccessTest() {
-        driver.get("http://localhost:9999");
         WebElement formElement = driver.findElement(By.cssSelector("form"));
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
@@ -54,7 +54,6 @@ public class DebitCardTest {
 
     @Test
     void shouldFailMessageInvalidNameTest() {
-        driver.get("http://localhost:9999");
         WebElement formElement = driver.findElement(By.cssSelector("form"));
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Nikolay Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
@@ -67,9 +66,7 @@ public class DebitCardTest {
 
     @Test
     void shouldBeEmptyNameTest() {
-        driver.get("http://localhost:9999");
         WebElement formElement = driver.findElement(By.cssSelector("form"));
-
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button.button")).click();
@@ -80,7 +77,6 @@ public class DebitCardTest {
 
     @Test
     void shouldFailMessageInvalidPhoneTest() {
-        driver.get("http://localhost:9999");
         WebElement formElement = driver.findElement(By.cssSelector("form"));
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+795146852");
@@ -93,10 +89,8 @@ public class DebitCardTest {
 
     @Test
     void shouldBeEmptyPhoneTest() {
-        driver.get("http://localhost:9999");
         WebElement formElement = driver.findElement(By.cssSelector("form"));
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
-
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultFail = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub"));
@@ -106,15 +100,12 @@ public class DebitCardTest {
 
     @Test
     void shouldCheckBoxInvalidTest() {
-        driver.get("http://localhost:9999");
         WebElement formElement = driver.findElement(By.cssSelector("form"));
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
-
         driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultFail = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text"));
         assertTrue(resultFail.isDisplayed());
         assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй",resultFail.getText().trim());
     }
-
 }
