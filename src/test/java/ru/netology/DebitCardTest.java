@@ -46,7 +46,7 @@ public class DebitCardTest {
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector("[class='button button_view_extra button_size_m button_theme_alfa-on-white']")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultSuccess = driver.findElement(By.cssSelector("[data-test-id='order-success']"));
         assertTrue(resultSuccess.isDisplayed());
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.",resultSuccess.getText().trim());
@@ -59,7 +59,7 @@ public class DebitCardTest {
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Nikolay Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector("[class='button button_view_extra button_size_m button_theme_alfa-on-white']")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultFail = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub"));
         assertTrue(resultFail.isDisplayed());
         assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.",resultFail.getText().trim());
@@ -72,7 +72,7 @@ public class DebitCardTest {
 
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector("[class='button button_view_extra button_size_m button_theme_alfa-on-white']")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultFail = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub"));
         assertTrue(resultFail.isDisplayed());
         assertEquals("Поле обязательно для заполнения",resultFail.getText().trim());
@@ -85,7 +85,7 @@ public class DebitCardTest {
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+795146852");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector("[class='button button_view_extra button_size_m button_theme_alfa-on-white']")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultFail = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub"));
         assertTrue(resultFail.isDisplayed());
         assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.",resultFail.getText().trim());
@@ -98,7 +98,7 @@ public class DebitCardTest {
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
 
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector("[class='button button_view_extra button_size_m button_theme_alfa-on-white']")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultFail = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub"));
         assertTrue(resultFail.isDisplayed());
         assertEquals("Поле обязательно для заполнения",resultFail.getText().trim());
@@ -111,7 +111,7 @@ public class DebitCardTest {
         formElement.findElement(By.cssSelector("input[name='name']")).sendKeys("Николай Поликарпов");
         formElement.findElement(By.cssSelector("input[name='phone']")).sendKeys("+79514685236");
 
-        driver.findElement(By.cssSelector("[class='button button_view_extra button_size_m button_theme_alfa-on-white']")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         WebElement resultFail = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text"));
         assertTrue(resultFail.isDisplayed());
         assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй",resultFail.getText().trim());
